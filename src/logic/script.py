@@ -22,5 +22,6 @@ class Descargador:
     def cambiarRuta(self, nueva_ruta: str) -> None:
         self.ruta_absoluta = nueva_ruta
 
-    
+    def __del__(self) -> None:                                                                                                        # Destructor 
+        pass
     
