@@ -2,10 +2,10 @@
 Proyecto personal para sacar el maximo potencial
 
 ## To-Do
-- [ ] Implementar Interfaz
+- [x] Implementar Interfaz
 - [ ] Refactor a las clases
-- [ ] Implementar descargas extensión mp4
-- [ ] Implementar descargas extensión mp3
-- [ ] Conexión de ambas descargas en la interfaz
-- [ ] Implementar funciones asincronicas para un uso paralelo de los comandos sin cracheos
+- [x] Implementar descargas extensión mp4
+- [x] Implementar descargas extensión mp3
+- [x] Conexión de ambas descargas en la interfaz
+- [ ] Implementar programación con threads para uso de funciones en paralelo de los comandos sin cracheos
 

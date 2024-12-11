@@ -1,6 +1,7 @@
 from customtkinter import *
 from frame_mp4 import FrameMP4
 from frame_mp3 import FrameMP3
+from frame_menu import Menu
 
 class Aplication(CTk):
 
@@ -30,7 +31,7 @@ class Aplication(CTk):
         # Botones 
         self.button_1 = CTkButton(self.menu_lateral, text="Descargar MP4", command= lambda: self.cambiarFrame(FrameMP4))
         self.button_2 = CTkButton(self.menu_lateral, text="Descargar MP3", command= lambda: self.cambiarFrame(FrameMP3))
-        self.button_3 = CTkButton(self.menu_lateral, text="Configuraciones", command=self.cambiarFrame)
+        self.button_3 = CTkButton(self.menu_lateral, text="Configuraciones", command= lambda: self.cambiarFrame(Menu))
 
         self.button_1.pack(pady=10, padx=10)
         self.button_2.pack(pady=10, padx=10)
