@@ -25,4 +25,7 @@ class Menu(CTkFrame):
     
     def cambiarRutaDescarga(self) -> None:
         self.ruta_descarga = filedialog.askdirectory(initialdir="C:/", title="Explorar la carpeta")
-        print(self.ruta_descarga)
+        with open("res/ruta_guardado.txt", "w+") as archivo:
+            archivo.write(self.ruta_descarga)
+            archivo.seek(0)
+            print(archivo.read())

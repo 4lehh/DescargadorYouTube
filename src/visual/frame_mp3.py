@@ -45,7 +45,7 @@ class FrameMP3(CTkFrame):
 
     def verExplorador(self) -> None: 
         try: 
-            os.startfile(self.descargador.getRutaDescarga())
+            os.startfile(self.ruta_descarga)
         except Exception as e:
             messagebox.showerror("Error", f"No se ha encontrado la ruta: \n {e}")
     

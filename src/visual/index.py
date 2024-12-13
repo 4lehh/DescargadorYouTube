@@ -11,7 +11,9 @@ class Aplication(CTk):
         super().__init__()
         self.title('Descargador')
         self.geometry('800x600')
-        self.ruta_descarga = None
+        self.ruta_descarga = None 
+        
+        self.leerFile()
 
         # Configuracion de los frames
         self.configurationAplication()
@@ -62,6 +64,14 @@ class Aplication(CTk):
         imagen_label.pack(pady=5)
         text_label = CTkLabel(self.menu_lateral, text="DescargadorTube")
         text_label.pack(pady=10)
+    
+    def leerFile(self) -> None:
+        try: 
+            with open("res/ruta_guardado.txt", "r") as archivo:
+                self.ruta_descarga = archivo.read()
+                print(self.ruta_descarga)
+        except:
+            self.ruta_descarga = None
 
     def __del__(self) -> None:
         pass

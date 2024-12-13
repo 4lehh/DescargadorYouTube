@@ -1,10 +1,13 @@
 # Carpetas genericas
-
 .idea/
 .venv/
 __pycache__/
+download/*
 
 # Videos
 *.mp4
 *.mp3
 downloads/
+
+# Archivos
+*.bin
