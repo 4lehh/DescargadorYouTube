@@ -20,15 +20,15 @@ class FrameChannel(CTkFrame):
         
         # Textos iniciales
 
-        label = CTkLabel(self, text="Descargar playlists de YouTube", font=("Arial", 20))
+        label = CTkLabel(self, text="Descargar videos de un canal de YouTube", font=("Arial", 20))
         label.pack(pady=20)
 
-        descripcion = CTkLabel(self, text="En este apartado tendrá que dejar el link del video para luego realizar una descarga.")
+        descripcion = CTkLabel(self, text="En este apartado tendrá que dejar el link del canal para luego realizar una descarga.")
         descripcion.pack(pady=30)
 
         # Boton de link
 
-        label_link = CTkLabel(self, text="Ingrese el link de la playlist", font=("Ariel", 20))
+        label_link = CTkLabel(self, text="Ingrese el link del canal", font=("Ariel", 20))
         label_link.pack(pady=10)
 
         entry = CTkEntry(self, placeholder_text="Link de YouTube")
