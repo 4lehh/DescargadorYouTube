@@ -8,11 +8,12 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 from src.logic.script import Descargador
 
 class FrameMP4(CTkFrame):
-    def __init__(self, parent, controller=None):
+    def __init__(self, parent, controller=None, ruta: str = None):
         super().__init__(parent)
         self.controller = controller
         self.descargador = Descargador(None)
         self.configurationAplication()
+        self.ruta_descarga = ruta
         
     
     def configurationAplication(self) -> None:
@@ -49,13 +50,16 @@ class FrameMP4(CTkFrame):
             messagebox.showerror("Error", f"No se ha encontrado la ruta: \n {e}")
 
 
-    def descargar(self, url: str, ruta_descarga: str = None) -> None:
+    def descargar(self, url: str) -> None:
         try: 
-            descargador = Descargador(url, ruta_descarga)
+            descargador = Descargador(url, self.ruta_descarga)
             descargador.descargarVideo()
             messagebox.showinfo("¡Descarga Completada!", "Se ha realizado correctamente la descarga")
         except Exception as e:
             messagebox.showerror("Error", f"No se pudo realizar la descarga por debido a un error: \n {e}")
+        
+    def getRutaFrame(self) -> str:
+        return self.ruta_descarga
 
 
 

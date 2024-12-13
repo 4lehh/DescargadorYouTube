@@ -11,6 +11,7 @@ class Aplication(CTk):
         super().__init__()
         self.title('Descargador')
         self.geometry('800x600')
+        self.ruta_descarga = None
 
         # Configuracion de los frames
         self.configurationAplication()
@@ -43,12 +44,14 @@ class Aplication(CTk):
         self.cambiarFrame(FrameMP4)
 
     # Trae un frame al frente
-    def cambiarFrame(self, frame_class, ruta: str = None):
+    def cambiarFrame(self, frame_class):
         for widget in self.main_frame.winfo_children():
+            if isinstance(widget, Menu):
+                self.ruta_descarga = widget.getRutaFrame()
             widget.destroy()
 
         # Crear una nueva instancia del frame y agregarla a main_frame
-        frame = frame_class(self.main_frame, self)
+        frame = frame_class(self.main_frame, self, self.ruta_descarga)
         frame.pack(fill="both", expand=True)
 
     def imagenApp(self) -> None:
