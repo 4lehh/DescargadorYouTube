@@ -14,3 +14,6 @@ class Menu(CTkFrame):
 
         descripcion = CTkLabel(self, text="En este apartado se gestionará donde se podrá configurar algunos campos de las descargas \n Ahora te dejamos las opciones:")
         descripcion.pack(pady=30)
+    
+    def cambiarRuta(self) -> None:
+        filedialog.askdirectory(initialdir=self.descargador.getRutaDescarga, title="Explorar la carpeta")

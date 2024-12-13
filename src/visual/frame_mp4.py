@@ -1,6 +1,7 @@
 from customtkinter import *
 import os
 import threading
+import tkinter.messagebox as messagebox
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
@@ -35,13 +36,31 @@ class FrameMP4(CTkFrame):
         boton_descarga = CTkButton(self, text="Descargar", command= lambda: self.iniciarDescarga(entry.get()))
         boton_descarga.pack(pady=10)
 
+        boton_descarga = CTkButton(self, text="Ir a carpeta", command= self.verExplorador)
+        boton_descarga.pack(pady=10)
+
     def iniciarDescarga(self, url: str) -> None:
         threading.Thread(target=self.descargar, args=(url,), daemon=True).start()
+    
+    def verExplorador(self) -> None: 
+        try:
+            os.startfile(self.descargador.getRutaDescarga())
+        except Exception as e:
+            messagebox.showerror("Error", f"No se ha encontrado la ruta: \n {e}")
 
 
-    def descargar(self, url: str) -> None:
-        descargador = Descargador(url)
-        descargador.descargarVideo()
-        print("GG")
+    def descargar(self, url: str, ruta_descarga: str = None) -> None:
+        try: 
+            descargador = Descargador(url, ruta_descarga)
+            descargador.descargarVideo()
+            messagebox.showinfo("¡Descarga Completada!", "Se ha realizado correctamente la descarga")
+        except Exception as e:
+            messagebox.showerror("Error", f"No se pudo realizar la descarga por debido a un error: \n {e}")
+
+
+
+        
+        
+
 
 

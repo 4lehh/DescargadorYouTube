@@ -43,7 +43,7 @@ class Aplication(CTk):
         self.cambiarFrame(FrameMP4)
 
     # Trae un frame al frente
-    def cambiarFrame(self, frame_class):
+    def cambiarFrame(self, frame_class, ruta: str = None):
         for widget in self.main_frame.winfo_children():
             widget.destroy()
 

@@ -13,7 +13,6 @@ class Descargador:
     def __init__(self, url: str, ruta_descarga: str = None):
         self.url_video = url
         self.ruta_absoluta = os.path.dirname(os.path.abspath(__file__)).replace('\\', '/').replace('/logic', '').replace('/src', '') + '/download' if ruta_descarga == None else ruta_descarga          # Quitar el src y remplazar los \\ por / y redirigir a download
-        print(self.ruta_absoluta)
 
     def descargarVideo(self) -> None:
         youtube_video = YouTube(self.url_video)
@@ -29,6 +28,9 @@ class Descargador:
     
     def cambiarRuta(self, nueva_ruta: str) -> None:
         self.ruta_absoluta = nueva_ruta
+    
+    def getRutaDescarga(self) -> str:
+        return self.ruta_absoluta
 
     def __del__(self) -> None:                                                                                                        # Destructor 
         pass
