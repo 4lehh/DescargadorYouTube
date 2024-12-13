@@ -11,3 +11,4 @@ Proyecto personal para sacar el maximo potencial
 - [x] Implementacion de explorador de archivos
 - [ ] Crear clase abstracta para manejar mejor los modelos
 - [ ] Mejorar diseños
+- [ ] Historial de descargas
