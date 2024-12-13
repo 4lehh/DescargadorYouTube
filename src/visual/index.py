@@ -1,7 +1,8 @@
 from customtkinter import *
-from frame_mp4 import FrameMP4
-from frame_mp3 import FrameMP3
-from frame_menu import Menu
+from src.visual.frame_mp4 import FrameMP4
+from src.visual.frame_mp3 import FrameMP3
+from src.visual.frame_menu import Menu
+from PIL import Image
 
 class Aplication(CTk):
 
@@ -27,6 +28,8 @@ class Aplication(CTk):
         self.main_frame = CTkFrame(self, corner_radius=10)
         self.main_frame.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
 
+        self.imagenApp()
+
 
         # Botones 
         self.button_1 = CTkButton(self.menu_lateral, text="Descargar MP4", command= lambda: self.cambiarFrame(FrameMP4))
@@ -48,14 +51,14 @@ class Aplication(CTk):
         frame = frame_class(self.main_frame, self)
         frame.pack(fill="both", expand=True)
 
+    def imagenApp(self) -> None:
+        image_path = "assets/youtube_logo.png"
+        imagen = Image.open(image_path)
+        imagen_escalada = CTkImage(imagen, size=(150, 150))
+        imagen_label = CTkLabel(self.menu_lateral, image=imagen_escalada, text="")
+        imagen_label.pack(pady=5)
+        text_label = CTkLabel(self.menu_lateral, text="DescargadorTube")
+        text_label.pack(pady=10)
 
     def __del__(self) -> None:
         pass
-
-
-        
-
-
-app = Aplication()
-app.mainloop()
-

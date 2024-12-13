@@ -12,5 +12,5 @@ class Menu(CTkFrame):
         label = CTkLabel(self, text="Configuraciones del sistema", font=("Arial", 20))
         label.pack(pady=20)
 
-        descripcion = CTkLabel(self, text="En este apartado se gestionará donde se .")
+        descripcion = CTkLabel(self, text="En este apartado se gestionará donde se podrá configurar algunos campos de las descargas \n Ahora te dejamos las opciones:")
         descripcion.pack(pady=30)

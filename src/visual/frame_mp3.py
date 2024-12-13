@@ -38,7 +38,7 @@ class FrameMP3(CTkFrame):
     def iniciarDescarga(self, url: str) -> None:
         threading.Thread(target=self.descargar, args=(url,), daemon=True).start()    
     
-    def descargarVideo(self, url: str):
+    def descargar(self, url: str):
         descargador = Descargador(url)
         descargador.descargarAudio()
         print("GG")

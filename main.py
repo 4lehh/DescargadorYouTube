@@ -1,5 +1,4 @@
-from src.logic.script import Descargador
-import os
+from src.visual.index import Aplication
 
-descargador = Descargador("https://www.youtube.com/watch?v=NnOH3_NAw34")
-descargador.descargarVideo()
+app = Aplication()
+app.mainloop()
