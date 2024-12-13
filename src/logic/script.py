@@ -1,6 +1,8 @@
 # Script funcional
 
 from pytubefix import YouTube
+from pytubefix import Playlist
+from pytubefix import Channel
 import os
 import time
 
@@ -26,6 +28,19 @@ class Descargador:
         youtube_stream.download(output_path=self.ruta_absoluta)
         time.sleep(1)
     
+    def descargarPlayList(self) -> None:
+        playlist = Playlist(self.url_video)
+        for video in playlist.videos:
+            youtube_stream = video.streams.get_audio_only()
+            youtube_stream.download(output_path=self.ruta_absoluta)
+            print("¡Descargado!")
+        time.sleep(1)
+    
+    def descargarVideoChannel(self) -> None:
+        channel = Channel(self.url_video)
+        for video in channel.videos:
+            video.streams.get_highest_resolution().download(output_path=self.ruta_absoluta)
+
     def cambiarRuta(self, nueva_ruta: str) -> None:
         self.ruta_absoluta = nueva_ruta
     

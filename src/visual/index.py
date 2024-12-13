@@ -1,6 +1,8 @@
 from customtkinter import *
 from src.visual.frame_mp4 import FrameMP4
 from src.visual.frame_mp3 import FrameMP3
+from src.visual.frame_playlist import FramePlayList
+from src.visual.frame_channel import FrameChannel
 from src.visual.frame_menu import Menu
 from PIL import Image
 
@@ -37,11 +39,15 @@ class Aplication(CTk):
         # Botones 
         self.button_1 = CTkButton(self.menu_lateral, text="Descargar MP4", command= lambda: self.cambiarFrame(FrameMP4))
         self.button_2 = CTkButton(self.menu_lateral, text="Descargar MP3", command= lambda: self.cambiarFrame(FrameMP3))
-        self.button_3 = CTkButton(self.menu_lateral, text="Configuraciones", command= lambda: self.cambiarFrame(Menu))
+        self.button_3 = CTkButton(self.menu_lateral, text="Descargar PlayLists", command= lambda: self.cambiarFrame(FramePlayList))
+        self.button_4 = CTkButton(self.menu_lateral, text="Descargar Canal", command= lambda: self.cambiarFrame(FrameChannel))
+        self.button_5 = CTkButton(self.menu_lateral, text="Configuraciones", command= lambda: self.cambiarFrame(Menu))
 
         self.button_1.pack(pady=10, padx=10)
         self.button_2.pack(pady=10, padx=10)
         self.button_3.pack(pady=10, padx=10)
+        self.button_4.pack(pady=10, padx=10)
+        self.button_5.pack(pady=10, padx=10)
 
         self.cambiarFrame(FrameMP4)
 
