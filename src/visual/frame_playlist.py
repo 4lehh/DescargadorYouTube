@@ -1,6 +1,5 @@
 from customtkinter import *
 import os
-import threading
 import tkinter.messagebox as messagebox
 from src.visual.frames import Frames
 
