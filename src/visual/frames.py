@@ -30,3 +30,7 @@ class Frames(ABC, CTkFrame):
     @abstractmethod
     def getRutaFrame(self) -> str:
         return self.ruta_descarga
+
+    @abstractmethod
+    def agregarDescargaHistorial(self, name_video: str) -> None:
+        pass

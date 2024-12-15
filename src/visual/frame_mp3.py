@@ -54,6 +54,7 @@ class FrameMP3(Frames, CTkFrame):
         try: 
             descargador = Descargador(url, self.ruta_descarga)
             descargador.descargarAudio()
+            self.agregarDescargaHistorial(descargador.getNameVideo())
             messagebox.showinfo("¡Descarga Completada!", "Se ha realizado correctamente la descarga")
         except Exception as e:
             messagebox.showerror("Error", f"No se pudo realizar la descarga por debido a un error: \n {e}")
@@ -61,3 +62,7 @@ class FrameMP3(Frames, CTkFrame):
     def getRutaFrame(self) -> str:
         return self.ruta_descarga
 
+    def agregarDescargaHistorial(self, name_video: str) -> None:
+        with open("res/historial.txt", "a") as archivo:
+            archivo.write(f"Nombre audio: {name_video}\n")
+            archivo.write(f"Ruta: {self.ruta_descarga}\n\n")      
