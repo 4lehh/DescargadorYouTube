@@ -9,6 +9,6 @@ Proyecto personal para sacar el maximo potencial
 - [x] Conexión de ambas descargas en la interfaz
 - [x] Implementar programación con threads para uso de funciones en paralelo de los comandos sin cracheos
 - [x] Implementacion de explorador de archivos
-- [ ] Crear clase abstracta para manejar mejor los modelos
+- [x] Crear clase abstracta para manejar mejor los modelos
 - [ ] Mejorar diseños
 - [ ] Historial de descargas

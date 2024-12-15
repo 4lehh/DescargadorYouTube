@@ -2,12 +2,13 @@ from customtkinter import *
 import os
 import threading
 import tkinter.messagebox as messagebox
+from src.visual.frames import Frames
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from src.logic.script import Descargador
 
-class FrameMP4(CTkFrame):
+class FrameMP4(Frames, CTkFrame):
     def __init__(self, parent, controller=None, ruta: str = None):
         super().__init__(parent)
         self.controller = controller
@@ -41,7 +42,7 @@ class FrameMP4(CTkFrame):
         boton_descarga.pack(pady=10)
 
     def iniciarDescarga(self, url: str) -> None:
-        threading.Thread(target=self.descargar, args=(url,), daemon=True).start()
+        super().iniciarDescarga(url)
     
     def verExplorador(self) -> None: 
         try:
