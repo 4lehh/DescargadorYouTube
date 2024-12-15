@@ -19,6 +19,9 @@ class Menu(CTkFrame):
         self.button_cambio = CTkButton(self, text="Ruta de descarga", command= self.cambiarRutaDescarga)
         self.button_cambio.pack(pady=10, padx=10)
 
+        self.button_historial = CTkButton(self, text="Ver historial", command= self.verDescargas)
+        self.button_historial.pack(pady=10, padx=10)
+
     
     def getRutaFrame(self) -> str:
         return self.ruta_descarga
@@ -29,3 +32,6 @@ class Menu(CTkFrame):
             archivo.write(self.ruta_descarga)
             archivo.seek(0)
             print(archivo.read())
+    
+    def verDescargas(self) -> None:
+        os.startfile(os.getcwd().replace('\\', '/') + "/res/historial.txt")

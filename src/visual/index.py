@@ -75,7 +75,6 @@ class Aplication(CTk):
         try: 
             with open("res/ruta_guardado.txt", "r") as archivo:
                 self.ruta_descarga = archivo.read()
-                print(self.ruta_descarga)
         except:
             self.ruta_descarga = None
 
