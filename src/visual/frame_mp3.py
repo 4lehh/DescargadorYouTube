@@ -2,6 +2,7 @@ from customtkinter import *
 import os
 import tkinter.messagebox as messagebox
 from src.visual.frames import Frames
+import threading
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
@@ -34,7 +35,10 @@ class FrameMP3(Frames, CTkFrame):
         entry = CTkEntry(self, placeholder_text="Link de YouTube")
         entry.pack(pady=10)
 
-        boton_descarga = CTkButton(self, text="Descargar", command= lambda: self.iniciarDescarga(entry.get()))
+        boton_descarga = CTkButton(self, text="Descargar en formato M4A", command= lambda: self.iniciarDescarga(entry.get()))
+        boton_descarga.pack(pady=10)
+
+        boton_descarga = CTkButton(self, text="Descargar en formato MP3", command= lambda: self.iniciarDescargaMP3(entry.get()))
         boton_descarga.pack(pady=10)
 
         boton_descarga = CTkButton(self, text="Ir a carpeta", command= self.verExplorador)
@@ -42,6 +46,9 @@ class FrameMP3(Frames, CTkFrame):
 
     def iniciarDescarga(self, url: str) -> None:
         super().iniciarDescarga(url)
+
+    def iniciarDescargaMP3(self, url: str) -> None:
+        threading.Thread(target=self.descargarMP3, args=(url,), daemon=True).start()
 
     def verExplorador(self) -> None: 
         try: 
@@ -54,6 +61,21 @@ class FrameMP3(Frames, CTkFrame):
             descargador = Descargador(url, self.ruta_descarga)
             descargador.descargarAudio()
             self.agregarDescargaHistorial(descargador.getNameVideo())
+            messagebox.showinfo("¡Descarga Completada!", "Se ha realizado correctamente la descarga")
+        except Exception as e:
+            messagebox.showerror("Error", f"No se pudo realizar la descarga por debido a un error: \n {e}")
+    
+    def descargarMP3(self, url: str):
+        try: 
+            descargador = Descargador(url, self.ruta_descarga)
+            descargador.descargarAudio()
+            self.agregarDescargaHistorial(descargador.getNameVideo())
+            
+            # Cambio de ruta
+
+            os.chdir(self.ruta_descarga)
+            os.rename(descargador.name_video + ".m4a", descargador.name_video + ".mp3")
+
             messagebox.showinfo("¡Descarga Completada!", "Se ha realizado correctamente la descarga")
         except Exception as e:
             messagebox.showerror("Error", f"No se pudo realizar la descarga por debido a un error: \n {e}")

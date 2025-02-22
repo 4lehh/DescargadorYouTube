@@ -12,3 +12,5 @@ Proyecto personal para sacar el maximo potencial
 - [x] Crear clase abstracta para manejar mejor los modelos
 - [ ] Mejorar diseños
 - [x] Historial de descargas
+- [ ] Crear ejecutables
+- [x] Crear MP3
